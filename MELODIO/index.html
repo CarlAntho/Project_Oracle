@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrument Shop - Group1</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1>🛒 MELODIO HUB </h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#shop" class="nav-link" onclick="showSection('shop')">Shop</a></li>
+                        <li><a href="#about" class="nav-link" onclick="showSection('about')">About</a></li>
+                        <li><a href="#contact" class="nav-link" onclick="showSection('contact')">Contact</a></li>
+                        <li><a href="#cart" class="nav-link" onclick="showSection('cart')">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                        <li><a href="#profile" class="nav-link" onclick="showSection('profile')">Profile</a></li>
+                        <li><a href="#admin" class="nav-link" onclick="showSection('admin')">Admin</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button id="login-btn" class="btn-primary" onclick="showSection('login')">Login</button>
+                    <button id="logout-btn" class="btn-secondary" onclick="logout()" style="display: none;">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h2>Welcome to<br>MELODIO HUB</h2>
+                        <p>Your Home for Quality Instruments.</p>
+                        <button class="btn-primary btn-lg" onclick="showSection('shop')">Start Shopping</button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/bg3.jpg" alt="Add to Cart Now!">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Section -->
+        <section id="shop" class="section">
+            <div class="container">
+                <div class="shop-header">
+                    <h2>Our Products</h2>
+                    <div class="search-filter">
+                        <input type="text" id="search-input" placeholder="Search products..." onkeyup="filterProducts()">
+                        <select id="category-filter" onchange="filterProducts()">
+                            <option value="">All Categories</option>
+                            <option value="Strings">Strings</option>
+                            <option value="Woodwind">Woodwind</option>
+                            <option value="Brass">Brass</option>
+                            <option value="Percussion">Percussion</option>
+                            <option value="Keyboard">Keyboard</option>
+                            <option value="Electronics">Electronics</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="products-grid" class="products-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Section -->
+        <section id="product-detail" class="section">
+            <div class="container">
+                <button class="btn-secondary" onclick="showSection('shop')">← Back to Shop</button>
+                <div id="product-detail-content" class="product-detail-content">
+                    <!-- Product details will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="about-container">
+                <div class="about-header">
+                    <h2>About MELODIO HUB</h2>
+                    <p>Your Ultimate Online Shopping Destination</p>
+                </div>
+                <div class="about-section">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Welcome to MELODIO HUB</h3>
+                            <p>At Melodio Hub, we believe that shopping should be an enjoyable and hassle-free experience. Since our founding, we've been committed to bringing you the finest selection of products from around the world, all at competitive prices.</p>
+                            <p>Our mission is to provide our customers with exceptional quality products, outstanding customer service, and a seamless shopping experience that keeps them coming back.</p>
+                            
+                            <div class="about-features">
+                                <div class="feature-box">
+                                    <h4>🚀 Fast Shipping</h4>
+                                    <p>Free shipping on orders over P50. Quick and reliable delivery to your doorstep.</p>
+                                </div>
+                                <div class="feature-box">
+                                    <h4>💯 Quality Guarantee</h4>
+                                    <p>All products are carefully curated and tested for quality before reaching you.</p>
+                                </div>
+                                <div class="feature-box">
+                                    <h4>🛡️ Secure Shopping</h4>
+                                    <p>Your data is protected with the latest encryption and security technologies.</p>
+                                </div>
+                                <div class="feature-box">
+                                    <h4>👥 24/7 Support</h4>
+                                    <p>Our customer service team is always ready to help with any questions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-image">
+                            <img src="images/bg4.jpg" alt="ShopHub">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-section">
+                    <div class="contact-header">
+                        <h2>Contact Us</h2>
+                        <p>Get in touch with our team - we'd love to hear from you!</p>
+                    </div>
+                    
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-card">
+                                <h3>📍 Address</h3>
+                                <p>Melodio Hub Headquarters<br>Poblacion <br>Talibon<br>Bohol</p>
+                            </div>
+                            <div class="contact-card">
+                                <h3>📞 Phone</h3>
+                                <p>Customer Service: <a href="tel:+63 (912) 345-6789">+63 (912) 345-6789</a><br>Sales: <a href="tel:+63 (912) 345-6789">+63 (912) 345-6789</a><br>Support Hours: 24/7</p>
+                            </div>
+                            <div class="contact-card">
+                                <h3>📧 More Contact Info.</h3>
+                                <p>Facebook: <a href="https://www.facebook.com/pabby.dayono">Abegail Dayono</a><br>Email: <a href="mail.google.com">benitezabegail23@gmail.com</a><br>Instagram: <a href="Instagram.com">Abegail Dayono</a></p>
+                            </div>
+                        </div>
+                        
+                        <form class="contact-form" id="contact-form" onsubmit="submitContactForm(event)">
+                            <h3>Send us a Message</h3>
+                            <div id="contact-success" class="success-message" style="display:none;">
+                                Thank you! Your message has been sent successfully.
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" placeholder="Enter your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-email">Your Email</label>
+                                <input type="email" id="contact-email" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" placeholder="What is this about?" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" placeholder="Type your message here..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" class="section">
+            <div class="container">
+                <h2>Shopping Cart</h2>
+                <div id="cart-content" class="cart-content">
+                    <div id="cart-items" class="cart-items">
+                        <!-- Cart items will be displayed here -->
+                    </div>
+                    <div id="cart-summary" class="cart-summary">
+                        <!-- Cart summary will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section id="checkout" class="section">
+            <div class="container">
+                <h2>Checkout</h2>
+                <div class="checkout-container">
+                    <form id="checkout-form" class="checkout-form">
+                        <div class="form-group">
+                            <h3>Shipping Information</h3>
+                            <input type="text" id="fullname" placeholder="Full Name" required>
+                            <input type="email" id="email" placeholder="Email" required>
+                            <input type="tel" id="phone" placeholder="Phone Number" required>
+                            <input type="text" id="address" placeholder="Street Address" required>
+                            <input type="text" id="city" placeholder="City" required>
+                            <input type="text" id="state" placeholder="State" required>
+                            <input type="text" id="zipcode" placeholder="Zip Code" required>
+                            <input type="text" id="country" placeholder="Country" required>
+                        </div>
+                        <div class="form-group">
+                            <h3>Payment Information</h3>
+                            <input type="text" id="card-name" placeholder="Cardholder Name" required>
+                            <input type="text" id="card-number" placeholder="Card Number (16 digits)" maxlength="16" required>
+                            <div class="card-row">
+                                <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                                <input type="text" id="card-cvc" placeholder="CVC" maxlength="3" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary btn-lg">Place Order</button>
+                    </form>
+                    <div id="checkout-summary" class="checkout-summary">
+                        <!-- Order summary will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="section">
+            <div class="container">
+                <div class="auth-container">
+                    <form id="login-form" class="auth-form" onsubmit="handleLoginSubmit(event)">
+                        <h2>Login</h2>
+                        <input type="email" id="login-email" placeholder="Email" required>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <button type="submit" class="btn-primary">Login</button>
+                        <p>Don't have an account? <a href="#" onclick="event.preventDefault(); toggleForms(); return false;">Register here</a></p>
+                    </form>
+                    <form id="register-form" class="auth-form" style="display: none;" onsubmit="handleRegisterSubmit(event)">
+                        <h2>Register</h2>
+                        <input type="text" id="register-name" placeholder="Full Name" required>
+                        <input type="email" id="register-email" placeholder="Email" required>
+                        <input type="password" id="register-password" placeholder="Password" required>
+                        <input type="password" id="register-confirm" placeholder="Confirm Password" required>
+                        <button type="submit" class="btn-primary">Register</button>
+                        <p>Already have an account? <a href="#" onclick="event.preventDefault(); toggleForms(); return false;">Login here</a></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="container">
+                <h2>My Profile</h2>
+                <div id="profile-content" class="profile-content">
+                    <div class="profile-info">
+                        <p id="profile-name"></p>
+                        <p id="profile-email"></p>
+                        <button class="btn-secondary" onclick="showSection('login')">Login to view profile</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin" class="section">
+            <div class="container">
+                <h2>Admin Dashboard</h2>
+                <div class="admin-container">
+                    <div class="admin-tabs">
+                        <button class="admin-tab-btn active" onclick="switchAdminTab('add-product')">Add Product</button>
+                        <button class="admin-tab-btn" onclick="switchAdminTab('manage-products')">Manage Products</button>
+                        <button class="admin-tab-btn" onclick="switchAdminTab('orders')">Orders</button>
+                    </div>
+                    
+                    <div id="add-product" class="admin-tab-content active">
+                        <h3>Add New Product</h3>
+                        <form id="add-product-form" class="product-form">
+                            <input type="text" id="prod-name" placeholder="Product Name" required>
+                            <textarea id="prod-description" placeholder="Product Description" required></textarea>
+                            <input type="number" id="prod-price" placeholder="Price" step="0.01" required>
+                            <input type="number" id="prod-stock" placeholder="Stock Quantity" required>
+                            <select id="prod-category" required>
+                                <option value="">Select Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="books">Books</option>
+                                <option value="home">Home & Garden</option>
+                                <option value="home">School Supplies</option>
+                                <option value="home">Pets</option>
+                            </select>
+                            <input type="text" id="prod-image" placeholder="Image URL">
+                            <button type="submit" class="btn-primary">Add Product</button>
+                        </form>
+                    </div>
+                    
+                    <div id="manage-products" class="admin-tab-content">
+                        <h3>Manage Products</h3>
+                        <div id="admin-products-list" class="admin-products-list">
+                            <!-- Products list will be displayed here -->
+                        </div>
+                    </div>
+                    
+                    <div id="orders" class="admin-tab-content">
+                        <h3>Orders</h3>
+                        <div id="admin-orders-list" class="admin-orders-list">
+                            <!-- Orders will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Confirmation Section -->
+        <section id="order-confirmation" class="section">
+            <div class="container">
+                <div class="confirmation-message">
+                    <h2>✓ Order Placed Successfully!</h2>
+                    <p id="order-number"></p>
+                    <p>Thank you for your purchase. You will receive a confirmation email shortly.</p>
+                    <div class="confirmation-details" id="confirmation-details"></div>
+                    <button class="btn-primary" onclick="showSection('shop')">Continue Shopping</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Melodio Hub. All rights reserved.</p>
+            <p>Contact: benitezabegail23@gmail.com | Phone: +63 (912) 345-6789</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
